@@ -24,7 +24,7 @@ public class NeighbourDetailsActivity extends AppCompatActivity {
 
     public static String NEIGHBOUR_KEY = "NEIGHBOUR_KEY";
     public static String FAVORITENEIGHBOUR_KEY = "FAVORITENEIGHBOUR_KEy";
-     Neighbour neighbour;
+    private Neighbour neighbour;
     private NeighbourApiService mApiService;
 
 
@@ -93,7 +93,11 @@ public class NeighbourDetailsActivity extends AppCompatActivity {
 
 
     //TODO : Ici on met la valeur des texts et image en fonction de neighbour
-    private void updateUi() {
+    public void updateUi() {
+
+        //Glide.with(image.getContext())
+               // .load(neighbour.getAvatarUrl())
+               // .into(image);
 
         prenom.setText(neighbour.getName());
 
