@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.model.Neighbour;
+import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.MyNeighbourRecyclerViewAdapter;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.NeighbourFragment;
@@ -24,6 +25,7 @@ public class NeighbourDetailsActivity extends AppCompatActivity {
     public static String NEIGHBOUR_KEY = "NEIGHBOUR_KEY";
     public static String FAVORITENEIGHBOUR_KEY = "FAVORITENEIGHBOUR_KEy";
      Neighbour neighbour;
+    private NeighbourApiService mApiService;
 
 
     //TODO : A FAIRE -> mimiquer ce que j'ai fait pour neighbour avec isFavorite (ok)
@@ -60,7 +62,11 @@ public class NeighbourDetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onStop(){
-
+        if(isFavorite) {
+            mApiService.addFavoriteNeighbour(neighbour);
+        } else {
+            mApiService.deleteFavoriteNeighbour(neighbour);
+        }
         super.onStop();
 
     }
