@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.2677083333333333" />
+        <entry key="app/src/main/res/drawable/ic_account.xml" value="0.4197916666666667" />
+        <entry key="app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.4197916666666667" />
+        <entry key="app/src/main/res/drawable/ic_baseline_call_24.xml" value="0.4197916666666667" />
+        <entry key="app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.4197916666666667" />
+        <entry key="app/src/main/res/drawable/ic_star.xml" value="0.4197916666666667" />
+        <entry key="app/src/main/res/drawable/ic_star_inactive.xml" value="0.4197916666666667" />
+        <entry key="app/src/main/res/drawable/ic_star_pressed.xml" value="0.4197916666666667" />
+        <entry key="app/src/main/res/drawable/ic_star_white_24dp.xml" value="0.4197916666666667" />
+        <entry key="app/src/main/res/layout/activity_add_neighbour.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/activity_list_neighbour.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/activity_neighbour_details.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_list_neighbour.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/fragment_neighbour.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/fragment_neighbour_list.xml" value="0.4036458333333333" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+</project>
