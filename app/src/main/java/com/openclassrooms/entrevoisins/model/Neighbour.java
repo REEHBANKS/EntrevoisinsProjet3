@@ -1,7 +1,5 @@
 package com.openclassrooms.entrevoisins.model;
 
-import com.openclassrooms.entrevoisins.ui.NeighbourDetailsActivity;
-
 import java.io.Serializable;
 import java.util.Objects;
 

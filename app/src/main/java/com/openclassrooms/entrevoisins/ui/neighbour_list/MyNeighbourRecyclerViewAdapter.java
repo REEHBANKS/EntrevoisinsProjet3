@@ -50,28 +50,18 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 .apply(RequestOptions.circleCropTransform())
                 .into(holder.mNeighbourAvatar);
 
-        holder.mDeleteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(mIsFavorite){
-                    //TODO : A FAIRE -> Envoyer un event DeleteFavoriteNeighbour (ok)
-                    EventBus.getDefault().post(new DeleteFavoriteNeighbourEvent(neighbour));
-                }else {
-                    EventBus.getDefault().post(new DeleteNeighbourEvent(neighbour));
-                }
+        holder.mDeleteButton.setOnClickListener(v -> {
+            if (mIsFavorite) {
+                EventBus.getDefault().post(new DeleteFavoriteNeighbourEvent(neighbour));
+            } else {
+                EventBus.getDefault().post(new DeleteNeighbourEvent(neighbour));
             }
         });
-
-        //TODO : J'ai mimiqué le delete neighbour pour envoyer l'information de click
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               if(mIsFavorite){
-                   //TODO : A FAIRE -> Envoyer un event ClickFavoriteNeighbour (OK)
-                   EventBus.getDefault().post(new ClickFavoriteNeighbourEvent(neighbour));
-               }else {
-                   EventBus.getDefault().post(new ClickNeighbourEvent(neighbour));
-               }
+        holder.itemView.setOnClickListener(v -> {
+            if (mIsFavorite) {
+                EventBus.getDefault().post(new ClickFavoriteNeighbourEvent(neighbour));
+            } else {
+                EventBus.getDefault().post(new ClickNeighbourEvent(neighbour));
             }
         });
 
