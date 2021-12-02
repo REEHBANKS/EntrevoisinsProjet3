@@ -17,6 +17,7 @@ public class ClickFavoriteNeighbourEvent {
      * Constructor.
      * @param neighbour
      */
-    public ClickFavoriteNeighbourEvent(Neighbour neighbour ) { this.neighbour = neighbour; }
+    public ClickFavoriteNeighbourEvent(Neighbour neighbour ) {
+        this.neighbour = neighbour; }
 
 }

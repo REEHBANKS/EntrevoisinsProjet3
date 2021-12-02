@@ -107,6 +107,7 @@ public class NeighbourFragment extends Fragment {
     @Subscribe
     public void onDeleteNeighbour(DeleteNeighbourEvent event) {
         mApiService.deleteNeighbour(event.neighbour);
+        mApiService.deleteFavoriteNeighbour(event.neighbour);
         initList();
     }
 
@@ -126,10 +127,13 @@ public class NeighbourFragment extends Fragment {
      * In the page favorite Fired if the user clicks on a delete button
      * @param event : favorite neighbour
      */
+    @Subscribe
     public void onDeletefavoriteNeighbour(DeleteFavoriteNeighbourEvent event) {
     //TODO : A FAIRE -> Dans la fonction delete, appeler la fonction de l'apiService pour supprimer le favorite neighbour (ok)
-       mApiService.deleteFavoriteNeighbour(event.neighbour);
-       initList();
+
+            mApiService.deleteFavoriteNeighbour(event.neighbour);
+            initList();
+
     }
 
     //TODO : A FAIRE -> Faire la mimique de la réception des clicks  pour un favorite neighbour (ok)
@@ -137,14 +141,17 @@ public class NeighbourFragment extends Fragment {
      * In the page favorite  Fired if the user clicks on cell
      * @param event : favorite neighbour
      */
+    @Subscribe
     public void onClickFavoriteNeighbour(ClickFavoriteNeighbourEvent event) {
     //TODO : A FAIRE -> Dans la fonction click, lancer l'activité avec la valeur favorite true(ok)
-        launchDetailActivity(event.neighbour);
+
+            launchDetailActivity(event.neighbour);
+
     }
 
     private void launchDetailActivity(Neighbour neighbour) {
         Intent intent = new Intent(getActivity(), NeighbourDetailsActivity.class);
-        intent.putExtra(NeighbourDetailsActivity.FAVORITENEIGHBOUR_KEY, neighbour);
+        intent.putExtra(NeighbourDetailsActivity.NEIGHBOUR_KEY, neighbour);
         intent.putExtra(NeighbourDetailsActivity.FAVORITENEIGHBOUR_KEY, mApiService.isNeighbourFavorite(neighbour));
         startActivity(intent);
     }

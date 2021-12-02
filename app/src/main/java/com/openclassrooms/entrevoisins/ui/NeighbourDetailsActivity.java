@@ -1,6 +1,8 @@
 package com.openclassrooms.entrevoisins.ui;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
+import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity;
@@ -19,6 +22,7 @@ import com.openclassrooms.entrevoisins.ui.neighbour_list.MyNeighbourRecyclerView
 import com.openclassrooms.entrevoisins.ui.neighbour_list.NeighbourFragment;
 
 import java.util.List;
+import java.util.Objects;
 
 public class NeighbourDetailsActivity extends AppCompatActivity {
 
@@ -33,22 +37,22 @@ public class NeighbourDetailsActivity extends AppCompatActivity {
 
     FloatingActionButton favoriteButton;
     TextView prenom;
-    ImageButton back;
     ImageView image;
     TextView prenom2;
     TextView tel;
     TextView mail;
     TextView location;
     TextView about;
-
-
-
+    ImageButton back;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_neighbour_details);
+       Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        mApiService = DI.getNeighbourApiService();
+
 
         neighbour = (Neighbour) getIntent().getSerializableExtra(NEIGHBOUR_KEY);
         //TODO : A FAIRE -> mimiquer ce que j'ai fait pour neighbour avec isFavorite (ok)
@@ -60,29 +64,33 @@ public class NeighbourDetailsActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onStop(){
-        if(isFavorite) {
-            mApiService.addFavoriteNeighbour(neighbour);
-        } else {
-            mApiService.deleteFavoriteNeighbour(neighbour);
-        }
-        super.onStop();
+    // TODO je veux verifier que Neighbourg n'est pas favori, si ce n'est pas le cas, je l'ajoute
 
-    }
+
 
 
     //TODO : Ici on instancie les éléments textView Image etc
     private void initUi() {
         favoriteButton = findViewById(R.id.favorite_button);
         prenom = findViewById(R.id.prenom);
-        back = findViewById(R.id.back_arrow);
         image = findViewById(R.id.avatar_picture);
         prenom2 = findViewById(R.id.prenom2);
         tel = findViewById(R.id.telephone);
         mail = findViewById(R.id.facebook);
         location = findViewById(R.id.location);
         about = findViewById(R.id.aboutMe);
+        back = findViewById(R.id.back_button);
+
+
+                back.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+                Intent otherActivity2 = new Intent(getApplicationContext(),ListNeighbourActivity.class);
+                startActivity(otherActivity2);
+
+            }
+
+        });
 
 
 
@@ -91,35 +99,40 @@ public class NeighbourDetailsActivity extends AppCompatActivity {
     }
 
 
-
     //TODO : Ici on met la valeur des texts et image en fonction de neighbour
     public void updateUi() {
 
-        //Glide.with(image.getContext())
-               // .load(neighbour.getAvatarUrl())
-               // .into(image);
+        Glide.with(image.getContext())
+                .load(neighbour.getAvatarUrl())
+                .into(image);
 
         prenom.setText(neighbour.getName());
+        prenom2.setText((neighbour.getName()));
+        tel.setText(neighbour.getPhoneNumber());
+        location.setText(neighbour.getAddress());
+        about.setText(neighbour.getAboutMe());
+        mail.setText(neighbour.getMail());
+        favoriteButton.setActivated(isFavorite);
 
         favoriteButton.setOnClickListener(v -> {
             if (isFavorite) {
                 favoriteButton.setActivated(false);
                 isFavorite = false;
+                mApiService.deleteFavoriteNeighbour(neighbour);
+
+
             } else {
                 favoriteButton.setActivated(true);
                 isFavorite = true;
+                mApiService.addFavoriteNeighbour(neighbour);
             }
-
         });
 
-         back.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 Intent ww = new Intent(getApplicationContext(), ListNeighbourActivity.class);
-                 startActivity(ww);
 
-             }
-         });
 
-          }
+    }
+
+
+
+
 }

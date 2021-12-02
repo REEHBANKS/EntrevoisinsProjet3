@@ -37,6 +37,8 @@ public class AddNeighbourActivity extends AppCompatActivity {
     TextInputLayout aboutMeInput;
     @BindView(R.id.create)
     MaterialButton addButton;
+    @BindView(R.id.facebookLyt)
+    TextInputLayout facebookInput;
 
     private NeighbourApiService mApiService;
     private String mNeighbourImage;
@@ -49,6 +51,8 @@ public class AddNeighbourActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mApiService = DI.getNeighbourApiService();
         init();
+
+
     }
 
     @Override
@@ -87,7 +91,9 @@ public class AddNeighbourActivity extends AppCompatActivity {
                 mNeighbourImage,
                 addressInput.getEditText().getText().toString(),
                 phoneInput.getEditText().getText().toString(),
-                aboutMeInput.getEditText().getText().toString()
+                aboutMeInput.getEditText().getText().toString(),
+                facebookInput.getEditText().getText().toString()
+
         );
         mApiService.createNeighbour(neighbour);
         finish();

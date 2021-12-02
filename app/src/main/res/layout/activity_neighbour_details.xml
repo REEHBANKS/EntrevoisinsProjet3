@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#d3d3d3"
+    android:id="@+id/detailActivityScreen"
     tools:context=".ui.NeighbourDetailsActivity">
 
     <ImageView
@@ -29,16 +30,14 @@
         app:layout_constraintTop_toBottomOf="@id/avatar_picture" />
 
     <ImageButton
-        android:id="@+id/back_arrow"
-        android:layout_width="35dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="232dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/ic_baseline_arrow_back_24"
-        app:layout_constraintBottom_toTopOf="@+id/conteneur1"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/back_button"
+        app:srcCompat="@drawable/ic_baseline_arrow_back_24"
+        android:background="@null"
+        tools:ignore="MissingConstraints" />
+
+
 
     <TextView
         android:id="@+id/prenom"
@@ -141,7 +140,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:padding="15dp"
+            android:padding="5dp"
             android:text="A propos de moi"
             android:textColor="#000"
             android:textSize="25sp"
@@ -153,7 +152,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textTitre"
             android:layout_marginStart="20dp"
-            android:textSize="17sp"
+            android:textSize="14sp"
             tools:text="je suis fort, je suis content......."
 
             />

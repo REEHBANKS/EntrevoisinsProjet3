@@ -35,6 +35,7 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
      */
     @Override
     public void deleteNeighbour(Neighbour neighbour) {
+
         neighbours.remove(neighbour);
     }
 
@@ -54,7 +55,9 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
 
     @Override
     public void addFavoriteNeighbour(Neighbour neighbour) {
-        favoriteNeighbours.add(neighbour);
+        if( !isNeighbourFavorite(neighbour)) {
+            favoriteNeighbours.add(neighbour);
+        }
     }
 
     @Override

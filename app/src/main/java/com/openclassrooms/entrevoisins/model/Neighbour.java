@@ -28,6 +28,9 @@ public class Neighbour implements Serializable {
     /** About me */
     private String aboutMe;
 
+    /** Mail */
+    private String mail;
+
     /**
      * Constructor
      * @param id
@@ -35,13 +38,14 @@ public class Neighbour implements Serializable {
      * @param avatarUrl
      */
     public Neighbour(long id, String name, String avatarUrl, String address,
-                     String phoneNumber, String aboutMe) {
+                     String phoneNumber, String aboutMe, String mail) {
         this.id = id;
         this.name = name;
         this.avatarUrl = avatarUrl;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.aboutMe = aboutMe;
+        this.mail = mail;
     }
 
 
@@ -93,6 +97,15 @@ public class Neighbour implements Serializable {
 
     public void setAboutMe(String aboutMe) {
         this.aboutMe = aboutMe;
+    }
+
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
 
