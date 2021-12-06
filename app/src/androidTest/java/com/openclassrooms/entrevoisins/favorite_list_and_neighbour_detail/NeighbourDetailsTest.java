@@ -67,10 +67,10 @@ public class NeighbourDetailsTest {
     @Test
     public void CheckIfTheFavoriteNeighbourIsInTheFavoriteList() {
         // Given: Check that the favorites list is empty
-        onView(withContentDescription(R.string.tab_favorites_title)).perform(click());
+        onView(withText(R.string.tab_favorites_title)).perform(click());
         onView(allOf(withId(R.id.list_neighbours), hasFocus())).check(withItemCount(0));
         // When : Click on a neighbour and add to favorite,  initial position 4
-        onView(withContentDescription(R.string.tab_neighbour_title)).perform(click());
+        onView(withText(R.string.tab_neighbour_title)).perform(click());
         onView(allOf(withId(R.id.list_neighbours), hasFocus())).perform(RecyclerViewActions
                 .actionOnItemAtPosition(4, click()));
         onView(ViewMatchers.withId(R.id.favorite_button)).perform(click());
