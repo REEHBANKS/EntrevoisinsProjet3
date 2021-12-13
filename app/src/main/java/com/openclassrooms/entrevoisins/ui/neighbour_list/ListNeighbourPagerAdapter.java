@@ -19,12 +19,11 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
      */
     @Override
     public Fragment getItem(int position) {
-        //TODO : Ici j'ai fait en sorte qu'on fasse la différence entre les deux fragment, si on est sur la première page, isFavorite sera false
-       if(position == 0){
-           return NeighbourFragment.newInstance(false);
-       }else {
-           return NeighbourFragment.newInstance(true);
-       }
+        if (position == 0) {
+            return NeighbourFragment.newInstance(false);
+        } else {
+            return NeighbourFragment.newInstance(true);
+        }
     }
 
     /**
