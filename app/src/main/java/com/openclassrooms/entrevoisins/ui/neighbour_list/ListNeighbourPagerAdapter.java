@@ -13,22 +13,23 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
 
     /**
      * getItem is called to instantiate the fragment for the given page.
-     * @param position
-     * @return
+     *
+     *
+     *
      */
     @Override
     public Fragment getItem(int position) {
-        //TODO : Ici j'ai fait en sorte qu'on fasse la différence entre les deux fragment, si on est sur la première page, isFavorite sera false
-       if(position == 0){
-           return NeighbourFragment.newInstance(false);
-       }else {
-           return NeighbourFragment.newInstance(true);
-       }
+        if (position == 0) {
+            return NeighbourFragment.newInstance(false);
+        } else {
+            return NeighbourFragment.newInstance(true);
+        }
     }
 
     /**
      * get the number of pages
-     * @return
+     *
+     *
      */
     @Override
     public int getCount() {
