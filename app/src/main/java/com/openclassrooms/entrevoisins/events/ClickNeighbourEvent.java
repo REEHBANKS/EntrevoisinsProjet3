@@ -14,7 +14,7 @@ public class ClickNeighbourEvent {
 
     /**
      * Constructor.
-     * @param neighbour
+     *
      */
     public ClickNeighbourEvent(Neighbour neighbour) {
         this.neighbour = neighbour;

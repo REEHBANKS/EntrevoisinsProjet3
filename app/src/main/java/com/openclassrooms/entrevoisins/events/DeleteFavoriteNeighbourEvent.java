@@ -16,7 +16,7 @@ public class DeleteFavoriteNeighbourEvent {
 
     /**
      * Constructor.
-     * @param neighbour
+     *
      */
     public DeleteFavoriteNeighbourEvent(Neighbour neighbour){this.neighbour = neighbour; }
 }

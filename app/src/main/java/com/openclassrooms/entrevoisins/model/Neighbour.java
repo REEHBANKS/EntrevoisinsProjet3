@@ -31,9 +31,9 @@ public class Neighbour implements Serializable {
 
     /**
      * Constructor
-     * @param id
-     * @param name
-     * @param avatarUrl
+     *
+     *
+     *
      */
     public Neighbour(long id, String name, String avatarUrl, String address,
                      String phoneNumber, String aboutMe, String mail) {
