@@ -12,7 +12,6 @@ public class  DummyNeighbourApiService implements NeighbourApiService {
 
     private final List<Neighbour> neighbours = DummyNeighbourGenerator.generateNeighbours();
 
-    //TODO: Ici j'ai ajouté la liste de favoris avec toutes les fonctions qui vont avec
     private final List<Neighbour> favoriteNeighbours = new ArrayList<>();
 
 
@@ -24,7 +23,6 @@ public class  DummyNeighbourApiService implements NeighbourApiService {
         return neighbours;
     }
 
-    //TODO: J'ai ajouté les fonctions dont on a besoin
     @Override
     public List<Neighbour> getFavoriteNeighbours() {
         return favoriteNeighbours;
@@ -46,6 +44,7 @@ public class  DummyNeighbourApiService implements NeighbourApiService {
 
     /**
      * {@inheritDoc}
+     *
      * @param neighbour
      */
     @Override
@@ -55,7 +54,7 @@ public class  DummyNeighbourApiService implements NeighbourApiService {
 
     @Override
     public void addFavoriteNeighbour(Neighbour neighbour) {
-        if( !isNeighbourFavorite(neighbour)) {
+        if (!isNeighbourFavorite(neighbour)) {
             favoriteNeighbours.add(neighbour);
         }
     }
